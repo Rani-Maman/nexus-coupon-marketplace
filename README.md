@@ -40,23 +40,22 @@ A full-stack backend system for a digital coupon marketplace supporting three se
 ### With Docker
 
 ```bash
-git clone <repo-url> && cd Nexus
+git clone https://github.com/Rani-Maman/nexus-coupon-marketplace.git && cd nexus-coupon-marketplace
 cp .env.example .env
 docker-compose up --build
-# Seed sample data (optional):
-docker-compose exec server npx prisma db seed
 ```
+
+The database is automatically migrated and seeded on startup.
 
 ### Without Docker
 
 ```bash
-# 1. Start PostgreSQL and set DATABASE_URL in server/.env
-# 2. Run migrations + seed:
-cd server && npx prisma migrate deploy && npx prisma db seed
-# 3. Start server:
-npm run dev
-# 4. In another terminal, start client:
-cd client && npm run dev
+# 1. Start PostgreSQL and create a database
+# 2. Configure server/.env with your DATABASE_URL, RESELLER_API_TOKEN, ADMIN_API_TOKEN
+# 3. Install, migrate, seed, and start the server:
+cd server && npm install && npx prisma migrate deploy && npx prisma db seed && npm run dev
+# 4. In another terminal, install and start the client:
+cd client && npm install && npm run dev
 ```
 
 - **Frontend:** http://localhost:5173
