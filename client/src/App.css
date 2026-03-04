@@ -1,0 +1,303 @@
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+nav button {
+  padding: 8px 20px;
+  margin-left: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+nav button.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.coupon-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.coupon-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.coupon-card h3 {
+  margin: 10px 0 5px;
+}
+
+.coupon-card p {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin: 0 0 10px;
+}
+
+.coupon-card .price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #16a34a;
+  margin-bottom: 10px;
+}
+
+.coupon-card button,
+.create-form button,
+.modal button {
+  padding: 8px 24px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.coupon-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.create-form {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.create-form h3 {
+  margin-top: 0;
+}
+
+.create-form input,
+.create-form select {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.admin-table th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.admin-table .sold {
+  opacity: 0.5;
+}
+
+.value-cell {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.delete-btn {
+  padding: 4px 12px !important;
+  background: #dc2626 !important;
+  font-size: 0.8rem !important;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.coupon-code {
+  display: block;
+  background: #f3f4f6;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  margin: 10px 0 20px;
+  word-break: break-all;
+}
+
+.coupon-image {
+  max-width: 100%;
+  margin: 10px 0 20px;
+  border-radius: 6px;
+}
+
+.error {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* Loading spinner */
+.loading {
+  text-align: center;
+  padding: 40px 0;
+  color: #6b7280;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin: 0 auto 12px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: #6b7280;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.empty-state h3 {
+  margin: 0 0 5px;
+  color: #374151;
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #16a34a;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Status badges */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-available {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.badge-sold {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Table wrapper for overflow */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* Hover effects */
+.coupon-card {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.coupon-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.admin-table tbody tr:hover {
+  background: #f9fafb;
+}

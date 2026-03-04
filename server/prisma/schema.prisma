@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ProductType {
+  COUPON
+}
+
+enum ValueType {
+  STRING
+  IMAGE
+}
+
+model Product {
+  id          String      @id @default(uuid()) @db.Uuid
+  name        String      @db.VarChar(255)
+  description String      @db.Text
+  type        ProductType @default(COUPON)
+  imageUrl    String      @map("image_url") @db.VarChar(2048)
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+
+  costPrice        Decimal   @map("cost_price") @db.Decimal(12, 2)
+  marginPercentage Decimal   @map("margin_percentage") @db.Decimal(8, 4)
+  isSold           Boolean   @default(false) @map("is_sold")
+  valueType        ValueType @map("value_type")
+  value            String    @db.Text
+
+  @@map("products")
+}
